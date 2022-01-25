@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'highland gothic';
+    src: url(highland-gothic/HighlandGothicFLF.ttf);
+}
+
+@font-face {
+    font-family: 'questrial';
+    src: url(questrial/Questrial-Regular.ttf);
+}
+
+* {
+    border: 0px solid black;
+    font-family: 'questrial', sans-serif;
+    caret-color: transparent;
+}
+
+html {
+    background-color: dimgray;
+    background-color: #D3D3D3;
+    background-size: 20px 20px;
+    background-image:  repeating-linear-gradient(to right, #696969, #696969 1px, #D3D3D3 1px, #D3D3D3);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 0;
+    background-color:grey;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 18px;
+    padding-left: 8px;
+
+}
+
+input {
+    border: 1px solid darkgrey;
+    margin-bottom: 8px;
+}
+
+#new-book-field-and-button {
+    background-color: grey;
+    border-bottom: 2px solid black;
+}
+
+#add-new-book {
+    margin: 8px;
+    padding: 8px;
+}
+
+#two-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#reset-data {
+    margin: 8px;
+    padding: 8px;
+    margin-right: 0;
+    background-color: lightsteelblue;
+}
+#reset-data:hover {
+    background-color: #8699B2;
+}
+#reset-data:active {
+    background-color: black;
+    color: #8699B2;
+}
+
+#new-book-form {
+    display: none;
+    flex-direction: column;
+    padding-bottom: 12px;
+    margin-top: 16px;
+    padding-left: 8px;
+}
+
+#new-book-field-and-button {
+    margin-bottom: 16px;
+}
+
+#radio-buttons {
+    caret-color: transparent;
+    margin-top: 12px;
+}
+
+#rad-read,
+#rad-nread {
+    margin-left: 8px;
+}
+
+#submit-and-cancel button {
+    padding: 8px;
+    margin-right: 12px;
+}
+
+#cancel-button {
+    background-color: lightsteelblue;
+}
+#cancel-button:hover {
+    background-color: #8699B2;
+}
+#cancel-button:active {
+    background-color: black;
+    color: #8699B2;
+}
+
+h2 {
+    margin-top: 32px;
+    background-color: lightsteelblue;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#library {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    caret-color: transparent;
+    border-radius: 0px;
+    font-size: 16px;
+}
+
+#library {
+    border: 0px solid purple;
+}
+
+#submit-and-cancel {
+    caret-color: transparent;
+    margin-top: 12px;
+}
+
+.book-card-read,
+.book-card-notread {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+.book-card-read {
+    background-color: darkgrey;
+    color: black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.book-card-notread {
+    background-color: lightgrey;
+    color: black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.book-card-notread p,
+.book-card-read p {
+    padding-left: 8px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-delete-button {
+    background-color: lightsteelblue;
+}
+.card-delete-button:hover {
+    background-color: #8699B2;
+}
+.card-delete-button:active {
+    background-color: black;
+    color: #8699B2;
+}
+

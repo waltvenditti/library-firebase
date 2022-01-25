@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Electronic Library</title>
+    <script src='script.js' defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Electronic Library</h1>
+    </header>
+    <div id='new-book-field-and-button'>
+        <div id='two-buttons'>
+        <button id='add-new-book'>Add New Book</button>
+        <button id ='reset-data'>Reset Data</button>
+        </div>
+        <div id='new-book-form'>
+            <div class='input-div'>
+                <input type='text' placeholder='Book Title' name='title-input' id='title-field'>
+            </div>
+            <div class='input-div'>
+                <input type='text' placeholder='Book Author' name='author-input' id='author-field'>
+            </div>
+            <div class='input-div'>
+                <input type='text' placeholder='Page Count' name='pagecount-input' id='pagecount-field'>
+            </div>
+            <div id='radio-buttons'>
+                <span id='read-text'>Book read? </span>
+                <input type='radio' name='read-input' value='read' id='rad-read'>Read
+                <input type='radio' name='read-input' value='not read' id='rad-nread' checked='checked'>Not Read
+            </div>
+            <div id='submit-and-cancel'>
+                <button id='submit-button'>Add To Library</button>
+                <button id='cancel-button'>Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id='library'>
+        <h2>Your Library</h2>
+        <!--
+        <div class='book-card-notread'>
+            <p class='card-p'>Title by Author, x pages, read.</p>
+            <div class='card-buttons'>
+                <button class='card-read-button'>Mark as Unread</button>
+                <button class='card-delete-button'>Delete Book</button>
+            </div>
+        </div>
+        -->
+    </div>
+</body>
+</html>
