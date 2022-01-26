@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'highland gothic';
-    src: url(highland-gothic/HighlandGothicFLF.ttf);
+    src: url(../highland-gothic/HighlandGothicFLF.ttf);
 }
 
 @font-face {
     font-family: 'questrial';
-    src: url(questrial/Questrial-Regular.ttf);
+    src: url(../questrial/Questrial-Regular.ttf);
 }
 
 * {
