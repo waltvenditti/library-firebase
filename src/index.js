@@ -1,4 +1,6 @@
-import './styles.css'
+import './style.css'
+
+
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "firebase/app";
@@ -108,7 +110,7 @@ function deleteBookCard(index) {
 
 function deleteAllCards() {
     for (let i = myLibrary.length - 1; i >= 0; i--) {
-        cardToDel = document.querySelector(`#cid${i}`);
+        let cardToDel = document.querySelector(`#cid${i}`);
         libraryDiv.removeChild(cardToDel);
     }
 }
@@ -126,7 +128,11 @@ function saveToLocalStorage() {
             myLibrary[i].author, '$',
             myLibrary[i].pageCount, '$',
             myLibrary[i].read, '$',
-        ]
+        ];
+        let str = `${arrayToStore[0]},${arrayToStore[1]},${arrayToStore[2]},${arrayToStore[3]},${arrayToStore[4]},${arrayToStore[5]},${arrayToStore[6]},${arrayToStore[7]}`;
+        // str is a string like what localStorage creates,
+        // it will be uploaded to firebase
+        console.log(str);
         localStorage.setItem(`cid${i}`, arrayToStore);
     }
 }
@@ -139,7 +145,7 @@ function refreshLocalStorage() {
 
 function checkLocalStorage() {
     //runs when site first loaded, see bottom of this file
-    len = localStorage.length;
+    const len = localStorage.length;
     if (len === 0) {
         localStorage.setItem('firstVis', null);
         addBookToLibrary('The Aleph and Other Stories', 'Jorge Louis Borges and Norman Thomas Di Giovanni', 286, 'read');
@@ -152,9 +158,10 @@ function checkLocalStorage() {
     if (len === 1) return;
     deleteAllCards();
     emptyLibrary();
-    for (i = 0; i < len-1; i++) {
-        bookStr = localStorage.getItem(`cid${i}`)
-        bookArray = bookStr.split(',$,');
+    for (let i = 0; i < len-1; i++) {
+        let bookStr = localStorage.getItem(`cid${i}`);
+        console.log(bookStr);
+        let bookArray = bookStr.split(',$,');
         bookArray[2] = Number(bookArray[2]);
         bookArray[3] = bookArray[3].slice(0,-2);
         let bookObj = new Book(
@@ -197,21 +204,21 @@ class Book {
 //-----------------
 
 //buttons
-btnAddNewBook = document.querySelector('#add-new-book');
-btnCancelAddNew = document.querySelector('#cancel-button');
-btnSubmit = document.querySelector('#submit-button');
-btnReset = document.querySelector('#reset-data');
+const btnAddNewBook = document.querySelector('#add-new-book');
+const btnCancelAddNew = document.querySelector('#cancel-button');
+const btnSubmit = document.querySelector('#submit-button');
+const btnReset = document.querySelector('#reset-data');
 
 //input fields
-fieldTitle = document.querySelector('#title-field');
-fieldAuthor = document.querySelector('#author-field');
-fieldPageCount = document.querySelector('#pagecount-field');
-fieldRadioRead = document.querySelector('#rad-read');
-fieldRadioNotRead = document.querySelector('#rad-nread');
+const fieldTitle = document.querySelector('#title-field');
+const fieldAuthor = document.querySelector('#author-field');
+const fieldPageCount = document.querySelector('#pagecount-field');
+const fieldRadioRead = document.querySelector('#rad-read');
+const fieldRadioNotRead = document.querySelector('#rad-nread');
 
 //containers
-addNewForm = document.querySelector('#new-book-form');
-libraryDiv = document.querySelector('#library')
+const addNewForm = document.querySelector('#new-book-form');
+const libraryDiv = document.querySelector('#library')
 
 
 //button-listener functions
@@ -280,7 +287,7 @@ btnCancelAddNew.addEventListener('click', () => {
 });
 
 btnSubmit.addEventListener('click', () => {
-    inputValues = getInput();
+    let inputValues = getInput();
     let submitSuccess = addBookToLibrary(inputValues[0], inputValues[1], Number(inputValues[2]), inputValues[3],);
     if (submitSuccess === true) {
         clearInputFields();
