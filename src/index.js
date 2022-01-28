@@ -1,5 +1,5 @@
 import './style.css'
-
+import { getFirestore, collection, addDoc, doc, deleteDoc } from 'firebase/firestore';
 
 // Import the functions you need from the SDKs you need
 
@@ -133,14 +133,40 @@ function saveToLocalStorage() {
         // str is a string like what localStorage creates,
         // it will be uploaded to firebase
         console.log(str);
+        saveToRemoteStorage(`cid${i}`, arrayToStore);
         localStorage.setItem(`cid${i}`, arrayToStore);
     }
 }
 
+async function saveToRemoteStorage(bookKey, bookArray) {
+    try {
+        await addDoc(collection(getFirestore(), 'books'), {
+            key: bookKey,
+            title: bookArray[0],
+            author: bookArray[2],
+            pageCount: bookArray[4],
+            read: bookArray[6],
+        });
+    }
+    catch(error) {
+        console.error("Error writing to Firebase Database", error);
+    }
+}
+
 function refreshLocalStorage() {
+    refreshRemoteStorage();
     localStorage.clear();
     localStorage.setItem('firstVis', null);
     saveToLocalStorage();
+}
+
+async function refreshRemoteStorage() {
+    try {
+        await deleteDoc(doc(books));
+    }
+    catch(error) {
+        console.error("Error deleting data from Firebase Database", error);
+    }
 }
 
 function checkLocalStorage() {
